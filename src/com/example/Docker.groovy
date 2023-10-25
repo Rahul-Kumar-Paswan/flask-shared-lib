@@ -27,4 +27,9 @@ class Docker implements Serializable {
         script.sh "docker push rahulkumarpaswan/$imageName"
     }
 
+    def deployApp(String imageName) {
+        script.echo "deploying the docker image..."
+        script.sh "DEPLOY_IMAGE_NAME=$imageName docker-compose up -d"
+    }
+
 }
